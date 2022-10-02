@@ -54,6 +54,12 @@ def test_is_prime_endpoint():
     result = response.json()
     assert result is True
 
+    response = client.get("/is_prime/asd")
+    assert response.status_code == 422
+
+    response = client.get("/is_prime/")
+    assert response.status_code == 404
+
 
 def test_fibonacci_endpoint():
     response = client.get("/fibonacci/1")
