@@ -1,0 +1,25 @@
+from fastapi.testclient import TestClient
+
+from main import app
+
+client = TestClient(app)
+
+
+def test_hello_endpoint():
+    response = client.get("/hello")
+    assert response.status_code == 200
+    assert response.json() == "Hello FastAPI"
+
+
+def test_is_prime_endpoint():
+    response = client.get("/is_prime/5")
+    assert response.status_code == 200
+    
+    result = response.json()
+    assert result is True
+
+
+def test_fibonacci_endpoint():
+    response = client.get("/fibonacci/1")
+    assert response.status_code == 200
+    assert response.json() == 1

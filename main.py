@@ -8,11 +8,11 @@ async def root():
     return "Hello FastAPI"
 
 
-@app.get("is_prime/{number}")
+@app.get("/is_prime/{number}")
 async def is_prime(number: int):
     return True
 
 
-@app.get("fibonacci/{number}")
+@app.get("/fibonacci/{number}")
 async def fibonacci(number: int):
     return 1
