@@ -25,5 +25,8 @@ async def is_prime(number: int):
 
 
 @app.get("/fibonacci/{number}")
-async def fibonacci(number: int):
-    return 1
+def fibonacci(number: int):
+    if number < 2:
+        return number
+
+    return fibonacci(number - 1) + fibonacci(number - 2)
