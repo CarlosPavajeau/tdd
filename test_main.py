@@ -12,9 +12,27 @@ def test_hello_endpoint():
 
 
 def test_is_prime_endpoint():
+    response = client.get("/is_prime/1")
+    assert response.status_code == 200
+
+    result = response.json()
+    assert result is False
+
+    response = client.get("/is_prime/-14")
+    assert response.status_code == 200
+
+    result = response.json()
+    assert result is False
+
+    response = client.get("/is_prime/6")
+    assert response.status_code == 200
+
+    result = response.json()
+    assert result is False
+
     response = client.get("/is_prime/5")
     assert response.status_code == 200
-    
+
     result = response.json()
     assert result is True
 

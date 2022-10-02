@@ -10,6 +10,12 @@ async def root():
 
 @app.get("/is_prime/{number}")
 async def is_prime(number: int):
+    if number <= 1:
+        return False
+    elif number <= 3:
+        return True
+    elif number % 2 == 0 or number % 3 == 0:
+        return False
     return True
 
 
