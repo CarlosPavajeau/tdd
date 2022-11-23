@@ -1,6 +1,6 @@
 node {
   stage('checkout') {
-    git 'https://github.com/cantte/tdd.git'
+    git branch: 'main', url: 'https://github.com/cantte/tdd.git'
   }
   stage('SonarQube analysis') {
     def scannerHome = tool 'SonarScanner 4.0';
