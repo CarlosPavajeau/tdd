@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 COPY . /app
 
 # Test application
-RUN pytest -v --cov=app --cov-report=term-missing
+RUN pytest -v
